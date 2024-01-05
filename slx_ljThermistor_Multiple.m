@@ -1,3 +1,19 @@
+%SLX_LJTHERMISTOR Mask initialization for lj_ThermistorRead block
+%   
+% slx_ljThermistor.m
+% Julian Bell, JTEC Energy
+% 2024-01-04
+% 
+% This class definition configures & initializes the mask for the
+% lj_ThermistorRead block in slx_LJM
+% 
+% Relevant references:
+% - XXX
+%
+% TODO:
+% - Add control of other thermistor configuration parameters to mask
+
+
 classdef slx_ljThermistor_Multiple
 
     properties
@@ -22,7 +38,7 @@ classdef slx_ljThermistor_Multiple
             parentID = get_param(bh,'Parent');
 
            try
-                disp('Trying to configure thermistor input')
+                disp('Trying to configure thermistor input...')
                 ljPort = mw.get('ljPort');
                 ljPort = strip(ljPort,"'");
                 disp(['I think the port is...', num2str(ljPort)]);

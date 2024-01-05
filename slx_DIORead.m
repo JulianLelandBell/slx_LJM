@@ -1,3 +1,18 @@
+%SLX_DIOREAD Mask initialization for lj_DIORead block
+%   
+% slx_DIORead.m
+% Julian Bell, JTEC Energy
+% 2024-01-04
+% 
+% This class definition configures & initializes the mask for the
+% lj_DIORead block in slx_LJM
+% 
+% Relevant references:
+% - XXX
+%
+% TODO:
+% - XXX
+
 classdef slx_DIORead
 
     properties

@@ -23,12 +23,18 @@ function[] = ljThermocoupleConfigure(handle, port, debug, efIdx, negPort, tempUn
     aValues(2) = tempUnits; % 0 = K, 1 = C, 2 = F
     aValues(3) = negPort; % Negative channel for input
 
-    LabJack.LJM.eWriteNames(handle, numFrames, aNames, aValues, 0);
-
     if debug
         disp("eWriteNames:");
         for i=1:numFrames
             disp(["  Name: " char(aNames(i)) ", Value: " num2str(aValues(i))])
         end
     end
+
+    try
+        LabJack.LJM.eWriteNames(handle, numFrames, aNames, aValues, 0);
+    catch ljConnectErr
+        showErrorMessage(ljConnectErr);
+        disp(ljConnectErr)
+        LabJack.LJM.CloseAll();
+    end 
 end

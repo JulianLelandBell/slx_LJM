@@ -16,7 +16,7 @@ For more information, please visit:
 - LabJack LJM: https://labjack.com/pages/support?doc=%2Fsoftware-driver%2Finstaller-downloads%2Fljm-software-installers-t4-t7-digit%2F
 - MATLAB for LJM: https://labjack.com/pages/support?doc=%2Fsoftware-driver%2Fexample-codewrappers%2Fmatlab-for-ljm-windows%2F</param.description>
     <param.screenshot>${PROJECT_ROOT}\slx_LJMLogo.png</param.screenshot>
-    <param.version>0.1</param.version>
+    <param.version>0.2</param.version>
     <param.output>${PROJECT_ROOT}\slx_LJM.mltbx</param.output>
     <param.products.name />
     <param.products.id />
@@ -48,6 +48,17 @@ _SimulinkProject/*
 resources/.Project/*
 resources/_Project/*
 **/*.prj
+**/.git
+AnalogOutputs
+AnalogOutputs/doc
+AnalogOutputs/library
+AnalogOutputs/library/derived
+AnalogOutputs/unittest
+AnalogOutputs/unittest/derived
+common/doc
+common/script
+integrationTestSystemController.slxc
+lj_Heartbeat/library/library_lj_Heartbeat.slx
 publish
 publish.prj
 publish/+publish
@@ -59,6 +70,7 @@ publish/extra/ljT7.png
 publish/extra/slx_eReadName.m
 publish/extra/slx_eWriteName.m
 publish/library
+publish/library/library_lj_Heartbeat.slx
 publish/library/slblocks.m
 publish/library/slx_LJM.slx
 publish/mex
@@ -66,13 +78,57 @@ publish/package
 publish/pysrc
 publish/script
 publish/sysobj
+slprj
+slprj/_jitprj
+slprj/_jitprj/jitEngineAccessInfo.mat
+slprj/_jitprj/sgzEzJyt2knLgMWVDkUKaME.l
+slprj/_jitprj/sgzEzJyt2knLgMWVDkUKaME.mat
+slprj/_jitprj/sHBh8kX8r5eEq7jCUIuccDF.l
+slprj/_jitprj/sHBh8kX8r5eEq7jCUIuccDF.mat
+slprj/_jitprj/sI2wvznm23FqcdmjxobwtJG.l
+slprj/_jitprj/sI2wvznm23FqcdmjxobwtJG.mat
+slprj/_jitprj/sv8flxoO1Qicsqp0kDwkoBB.l
+slprj/_jitprj/sv8flxoO1Qicsqp0kDwkoBB.mat
+slprj/_sfprj
+slprj/_sfprj/EMLReport
+slprj/_sfprj/EMLReport/emlReportAccessInfo.mat
 slprj/_sfprj/EMLReport/sgzEzJyt2knLgMWVDkUKaME
+slprj/_sfprj/EMLReport/sgzEzJyt2knLgMWVDkUKaME.mat
 slprj/_sfprj/EMLReport/sHBh8kX8r5eEq7jCUIuccDF
+slprj/_sfprj/EMLReport/sHBh8kX8r5eEq7jCUIuccDF.mat
 slprj/_sfprj/EMLReport/sI2wvznm23FqcdmjxobwtJG
+slprj/_sfprj/EMLReport/sI2wvznm23FqcdmjxobwtJG.mat
 slprj/_sfprj/EMLReport/sv8flxoO1Qicsqp0kDwkoBB
-slx_LJM.mltbx
-slx_LJMLogo.png
-slx_LJMLogo.xcf</param.exclude.filters>
+slprj/_sfprj/EMLReport/sv8flxoO1Qicsqp0kDwkoBB.mat
+slprj/_sfprj/ljControlTestBench_3
+slprj/_sfprj/ljControlTestBench_3/_self
+slprj/_sfprj/ljControlTestBench_3/_self/sfun
+slprj/_sfprj/ljControlTestBench_3/_self/sfun/info
+slprj/_sfprj/ljControlTestBench_3/_self/sfun/info/binfo.mat
+slprj/_sfprj/ljControlTestBench_3/amsi_serial.mat
+slprj/_sfprj/precompile
+slprj/_sfprj/precompile/8hgZK5Ltpx6SmoOF5brhmG.mat
+slprj/_sfprj/precompile/O5ylmBelfbFxk5sN22iqhD.mat
+slprj/_sfprj/precompile/tGYChwBtPzhdP3jgYAybxC.mat
+slprj/_sfprj/precompile/TPra9pZLGH0gbYQuJZ24jH.mat
+slprj/_sfprj/untitled
+slprj/_sfprj/untitled/_self
+slprj/_sfprj/untitled/_self/sfun
+slprj/_sfprj/untitled/_self/sfun/info
+slprj/_sfprj/untitled/_self/sfun/info/binfo.mat
+slprj/_sfprj/untitled/amsi_serial.mat
+slprj/_sfprj/untitled/slx_LJM
+slprj/_sfprj/untitled/slx_LJM/sfun
+slprj/_sfprj/untitled/slx_LJM/sfun/info
+slprj/_sfprj/untitled/slx_LJM/sfun/info/binfo.mat
+slprj/sim
+slprj/sim/varcache
+slprj/sim/varcache/integrationTestSystemController
+slprj/sim/varcache/integrationTestSystemController/checksumOfCache.mat
+slprj/sim/varcache/integrationTestSystemController/tmwinternal
+slprj/sim/varcache/integrationTestSystemController/tmwinternal/simulink_cache.xml
+slprj/sim/varcache/integrationTestSystemController/varInfo.mat
+untitled.slx.autosave</param.exclude.filters>
     <param.exclude.pcodedmfiles>true</param.exclude.pcodedmfiles>
     <param.examples />
     <param.demosxml />
@@ -132,9 +188,17 @@ slx_LJMLogo.xcf</param.exclude.filters>
     <fileset.rootfiles>
       <file>${PROJECT_ROOT}\AnalogOutputs</file>
       <file>${PROJECT_ROOT}\LabJack</file>
+      <file>${PROJECT_ROOT}\LabJackT7</file>
+      <file>${PROJECT_ROOT}\lj_AINRead</file>
+      <file>${PROJECT_ROOT}\lj_CurrentRead</file>
+      <file>${PROJECT_ROOT}\lj_DACTickWrite</file>
+      <file>${PROJECT_ROOT}\lj_DACWrite</file>
       <file>${PROJECT_ROOT}\lj_DIORead</file>
       <file>${PROJECT_ROOT}\lj_DIOWrite</file>
+      <file>${PROJECT_ROOT}\lj_Heartbeat</file>
+      <file>${PROJECT_ROOT}\lj_RTDRead</file>
       <file>${PROJECT_ROOT}\lj_ThermistorRead</file>
+      <file>${PROJECT_ROOT}\lj_ThermocoupleRead</file>
       <file>${PROJECT_ROOT}\ljFreqReadConfigure.m</file>
       <file>${PROJECT_ROOT}\ljPWMConfigure.m</file>
       <file>${PROJECT_ROOT}\ljRTDConfigure.m</file>
@@ -143,6 +207,7 @@ slx_LJMLogo.xcf</param.exclude.filters>
       <file>${PROJECT_ROOT}\ljThermistorConfigure.m</file>
       <file>${PROJECT_ROOT}\ljThermocoupleConfigure.m</file>
       <file>${PROJECT_ROOT}\maprange.m</file>
+      <file>${PROJECT_ROOT}\README.md</file>
       <file>${PROJECT_ROOT}\resources</file>
       <file>${PROJECT_ROOT}\slblocks.m</file>
       <file>${PROJECT_ROOT}\slprj</file>
@@ -151,11 +216,17 @@ slx_LJMLogo.xcf</param.exclude.filters>
       <file>${PROJECT_ROOT}\slx_eReadName.m</file>
       <file>${PROJECT_ROOT}\slx_eWriteName.m</file>
       <file>${PROJECT_ROOT}\slx_LabJackT7.m</file>
-      <file>${PROJECT_ROOT}\slx_LabJackT7_Multiple.m</file>
+      <file>${PROJECT_ROOT}\slx_ljAINRead.m</file>
+      <file>${PROJECT_ROOT}\slx_ljCurrent.m</file>
+      <file>${PROJECT_ROOT}\slx_ljDACTick.m</file>
+      <file>${PROJECT_ROOT}\slx_ljDACWrite.m</file>
+      <file>${PROJECT_ROOT}\slx_ljHeartbeat.m</file>
       <file>${PROJECT_ROOT}\slx_LJM.slx</file>
       <file>${PROJECT_ROOT}\slx_ljPWMOut.m</file>
+      <file>${PROJECT_ROOT}\slx_ljRTD.m</file>
       <file>${PROJECT_ROOT}\slx_ljThermistor.m</file>
       <file>${PROJECT_ROOT}\slx_ljThermistor_Multiple.m</file>
+      <file>${PROJECT_ROOT}\slx_ljThermocouple.m</file>
     </fileset.rootfiles>
     <fileset.depfun.included />
     <fileset.depfun.excluded />
