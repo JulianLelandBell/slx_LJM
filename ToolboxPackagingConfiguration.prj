@@ -16,7 +16,7 @@ For more information, please visit:
 - LabJack LJM: https://labjack.com/pages/support?doc=%2Fsoftware-driver%2Finstaller-downloads%2Fljm-software-installers-t4-t7-digit%2F
 - MATLAB for LJM: https://labjack.com/pages/support?doc=%2Fsoftware-driver%2Fexample-codewrappers%2Fmatlab-for-ljm-windows%2F</param.description>
     <param.screenshot>${PROJECT_ROOT}\slx_LJMLogo.png</param.screenshot>
-    <param.version>0.2</param.version>
+    <param.version>0.3</param.version>
     <param.output>${PROJECT_ROOT}\slx_LJM.mltbx</param.output>
     <param.products.name />
     <param.products.id />
@@ -81,25 +81,51 @@ publish/sysobj
 slprj
 slprj/_jitprj
 slprj/_jitprj/jitEngineAccessInfo.mat
+slprj/_jitprj/s08I5Zf3NoIjdU64lFq6asD.l
+slprj/_jitprj/s08I5Zf3NoIjdU64lFq6asD.mat
+slprj/_jitprj/s2LKw5lBFCylCjfK9hfqsIB.l
+slprj/_jitprj/s2LKw5lBFCylCjfK9hfqsIB.mat
 slprj/_jitprj/sgzEzJyt2knLgMWVDkUKaME.l
 slprj/_jitprj/sgzEzJyt2knLgMWVDkUKaME.mat
 slprj/_jitprj/sHBh8kX8r5eEq7jCUIuccDF.l
 slprj/_jitprj/sHBh8kX8r5eEq7jCUIuccDF.mat
 slprj/_jitprj/sI2wvznm23FqcdmjxobwtJG.l
 slprj/_jitprj/sI2wvznm23FqcdmjxobwtJG.mat
+slprj/_jitprj/slrAQVmhBca54DxxdZPazgC.l
+slprj/_jitprj/slrAQVmhBca54DxxdZPazgC.mat
+slprj/_jitprj/smAo7VWNoBFReEYYmck1bXC.l
+slprj/_jitprj/smAo7VWNoBFReEYYmck1bXC.mat
 slprj/_jitprj/sv8flxoO1Qicsqp0kDwkoBB.l
 slprj/_jitprj/sv8flxoO1Qicsqp0kDwkoBB.mat
+slprj/_jitprj/sYCeBPDp2JnBs4wGU3o0enC.l
+slprj/_jitprj/sYCeBPDp2JnBs4wGU3o0enC.mat
+slprj/_jitprj/sZoZUdCqAI11rRqAva6cFfH.l
+slprj/_jitprj/sZoZUdCqAI11rRqAva6cFfH.mat
 slprj/_sfprj
 slprj/_sfprj/EMLReport
 slprj/_sfprj/EMLReport/emlReportAccessInfo.mat
+slprj/_sfprj/EMLReport/s08I5Zf3NoIjdU64lFq6asD
+slprj/_sfprj/EMLReport/s08I5Zf3NoIjdU64lFq6asD.mat
+slprj/_sfprj/EMLReport/s2LKw5lBFCylCjfK9hfqsIB
+slprj/_sfprj/EMLReport/s2LKw5lBFCylCjfK9hfqsIB.mat
 slprj/_sfprj/EMLReport/sgzEzJyt2knLgMWVDkUKaME
 slprj/_sfprj/EMLReport/sgzEzJyt2knLgMWVDkUKaME.mat
 slprj/_sfprj/EMLReport/sHBh8kX8r5eEq7jCUIuccDF
 slprj/_sfprj/EMLReport/sHBh8kX8r5eEq7jCUIuccDF.mat
 slprj/_sfprj/EMLReport/sI2wvznm23FqcdmjxobwtJG
 slprj/_sfprj/EMLReport/sI2wvznm23FqcdmjxobwtJG.mat
+slprj/_sfprj/EMLReport/slrAQVmhBca54DxxdZPazgC
+slprj/_sfprj/EMLReport/slrAQVmhBca54DxxdZPazgC.mat
+slprj/_sfprj/EMLReport/smAo7VWNoBFReEYYmck1bXC
+slprj/_sfprj/EMLReport/smAo7VWNoBFReEYYmck1bXC.mat
 slprj/_sfprj/EMLReport/sv8flxoO1Qicsqp0kDwkoBB
 slprj/_sfprj/EMLReport/sv8flxoO1Qicsqp0kDwkoBB.mat
+slprj/_sfprj/EMLReport/sxLuCNnlOV0Fq4RnfjHV51E
+slprj/_sfprj/EMLReport/sxLuCNnlOV0Fq4RnfjHV51E.mat
+slprj/_sfprj/EMLReport/sYCeBPDp2JnBs4wGU3o0enC
+slprj/_sfprj/EMLReport/sYCeBPDp2JnBs4wGU3o0enC.mat
+slprj/_sfprj/EMLReport/sZoZUdCqAI11rRqAva6cFfH
+slprj/_sfprj/EMLReport/sZoZUdCqAI11rRqAva6cFfH.mat
 slprj/_sfprj/ljControlTestBench_3
 slprj/_sfprj/ljControlTestBench_3/_self
 slprj/_sfprj/ljControlTestBench_3/_self/sfun
@@ -107,10 +133,25 @@ slprj/_sfprj/ljControlTestBench_3/_self/sfun/info
 slprj/_sfprj/ljControlTestBench_3/_self/sfun/info/binfo.mat
 slprj/_sfprj/ljControlTestBench_3/amsi_serial.mat
 slprj/_sfprj/precompile
+slprj/_sfprj/precompile/67gbewhubJAOMTP2UDaQkD.mat
 slprj/_sfprj/precompile/8hgZK5Ltpx6SmoOF5brhmG.mat
+slprj/_sfprj/precompile/a5D0L8pQRaVZENXKeAINgH.mat
+slprj/_sfprj/precompile/autoInferAccessInfo.mat
+slprj/_sfprj/precompile/fHtVzNBcoIEY3IyJc38CoG.mat
+slprj/_sfprj/precompile/hYqFTWlxk1b1nGmsBWyiSF.mat
+slprj/_sfprj/precompile/lRBXuAVuJZC6xP2tu5ZjPH.mat
+slprj/_sfprj/precompile/MYZ5tnRoT5HpMVOewFYtFB.mat
+slprj/_sfprj/precompile/nOzrt5Jz4soRe2vD6xqqiB.mat
 slprj/_sfprj/precompile/O5ylmBelfbFxk5sN22iqhD.mat
+slprj/_sfprj/precompile/OKI2fa4m7yqbLDqM7H6qNG.mat
+slprj/_sfprj/precompile/QcbVBvXqv2goj1pkgSFeKB.mat
+slprj/_sfprj/precompile/r4W6i2mixh0izvKicMKWBG.mat
 slprj/_sfprj/precompile/tGYChwBtPzhdP3jgYAybxC.mat
 slprj/_sfprj/precompile/TPra9pZLGH0gbYQuJZ24jH.mat
+slprj/_sfprj/precompile/UVnDSL9d7VPTNwMZ4WpamD.mat
+slprj/_sfprj/precompile/Wrqz1NVBxSa8Gz2YFUTeMG.mat
+slprj/_sfprj/precompile/XBzbQhTiHy28E6ttkQOlLF.mat
+slprj/_sfprj/precompile/xSjQpGyOo2XbyJh7JGyNiF.mat
 slprj/_sfprj/untitled
 slprj/_sfprj/untitled/_self
 slprj/_sfprj/untitled/_self/sfun
@@ -128,7 +169,7 @@ slprj/sim/varcache/integrationTestSystemController/checksumOfCache.mat
 slprj/sim/varcache/integrationTestSystemController/tmwinternal
 slprj/sim/varcache/integrationTestSystemController/tmwinternal/simulink_cache.xml
 slprj/sim/varcache/integrationTestSystemController/varInfo.mat
-untitled.slx.autosave</param.exclude.filters>
+slx_LJMv0p3.mltbx</param.exclude.filters>
     <param.exclude.pcodedmfiles>true</param.exclude.pcodedmfiles>
     <param.examples />
     <param.demosxml />
@@ -186,15 +227,16 @@ untitled.slx.autosave</param.exclude.filters>
       <file>${PROJECT_ROOT}</file>
     </fileset.rootdir>
     <fileset.rootfiles>
-      <file>${PROJECT_ROOT}\AnalogOutputs</file>
-      <file>${PROJECT_ROOT}\LabJack</file>
+      <file>${PROJECT_ROOT}\common</file>
       <file>${PROJECT_ROOT}\LabJackT7</file>
+      <file>${PROJECT_ROOT}\LabJackT_Series</file>
       <file>${PROJECT_ROOT}\lj_AINRead</file>
       <file>${PROJECT_ROOT}\lj_CurrentRead</file>
       <file>${PROJECT_ROOT}\lj_DACTickWrite</file>
       <file>${PROJECT_ROOT}\lj_DACWrite</file>
       <file>${PROJECT_ROOT}\lj_DIORead</file>
       <file>${PROJECT_ROOT}\lj_DIOWrite</file>
+      <file>${PROJECT_ROOT}\lj_FrequencyRead</file>
       <file>${PROJECT_ROOT}\lj_Heartbeat</file>
       <file>${PROJECT_ROOT}\lj_RTDRead</file>
       <file>${PROJECT_ROOT}\lj_ThermistorRead</file>
@@ -210,7 +252,6 @@ untitled.slx.autosave</param.exclude.filters>
       <file>${PROJECT_ROOT}\README.md</file>
       <file>${PROJECT_ROOT}\resources</file>
       <file>${PROJECT_ROOT}\slblocks.m</file>
-      <file>${PROJECT_ROOT}\slprj</file>
       <file>${PROJECT_ROOT}\slx_DIORead.m</file>
       <file>${PROJECT_ROOT}\slx_DIOWrite.m</file>
       <file>${PROJECT_ROOT}\slx_eReadName.m</file>
@@ -222,6 +263,8 @@ untitled.slx.autosave</param.exclude.filters>
       <file>${PROJECT_ROOT}\slx_ljDACWrite.m</file>
       <file>${PROJECT_ROOT}\slx_ljHeartbeat.m</file>
       <file>${PROJECT_ROOT}\slx_LJM.slx</file>
+      <file>${PROJECT_ROOT}\slx_LJMLogo.png</file>
+      <file>${PROJECT_ROOT}\slx_LJMLogo.xcf</file>
       <file>${PROJECT_ROOT}\slx_ljPWMOut.m</file>
       <file>${PROJECT_ROOT}\slx_ljRTD.m</file>
       <file>${PROJECT_ROOT}\slx_ljThermistor.m</file>

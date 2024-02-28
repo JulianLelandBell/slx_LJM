@@ -1,6 +1,6 @@
 function[] = ljFreqReadConfigure(handle, port, debug, efIdx)
-%LJFREQREADCONFIGURE Function to configure thermocouple inputs to LabJack
-%T7-series devices
+%LJFREQREADCONFIGURE Function to configure DIO for frequency read on
+%LabJack T-series devices
 %   
 % ljFreqReadConfigure.m
 % Julian Bell, JTEC Energy

@@ -1,11 +1,11 @@
-%SLX_LABJACKT7 Mask initialization for LabJack T7 block
+%SLX_FREQUENCYREAD Mask initialization for lj_FrequencyRead block
 %   
-% slx_LabJackT7.m
+% slx_FrequencyRead.m
 % Julian Bell, JTEC Energy
-% 2024-01-04 (actually earlier, but this is when I'm adding these notes
+% 2024-02-20
 % 
 % This class definition configures & initializes the mask for the
-% LabJack T7 block in slx_LJM
+% lj_FrequencyRead block in slx_LJM
 % 
 % Relevant references:
 % - XXX
@@ -13,48 +13,49 @@
 % TODO:
 % - XXX
 
-classdef slx_LabJackT7
+classdef slx_FrequencyRead
 
     properties
         ljHandle double
         ljID string
+        ljPort string
     end
 
     methods(Static)
-
+        
+        
         % Following properties of 'maskInitContext' are available to use:
         %  - BlockHandle 
         %  - MaskObject 
         %  - MaskWorkspace: Use get/set APIs to work with mask workspace.
         function MaskInitialization(maskInitContext)
-            ljmAsm = NET.addAssembly('LabJack.LJM');
 
             % Create mask contexts
             bh = maskInitContext.BlockHandle;
             mo = maskInitContext.MaskObject;
             mw = maskInitContext.MaskWorkspace;
-            
-            % Creating an object to nested class LabJack.LJM.CONSTANTS
-            t = ljmAsm.AssemblyHandle.GetType('LabJack.LJM+CONSTANTS');
-            LJM_CONSTANTS = System.Activator.CreateInstance(t);
-            ljHandle = 0;
-            ljID = get_param(bh,'ljIdentifier');
-            ljID = strip(ljID,"'"); % Need to strip off leading and trailing single quotes
-            assignin('base','id',ljID);
 
-            % Connect to devices & configure inputs
+            % Get parent block ID
+            parentID = get_param(bh,'Parent');
+
             try
-                [ljmError, ljHandle] = LabJack.LJM.OpenS('T7', 'USB', ljID, ljHandle); % Example - need to change this to T4 for different device
-                showDeviceInfo(ljHandle); 
-                disp(['Handle = ',num2str(ljHandle)]);
+                disp('Trying to configure frequency Read');
+                ljPort = mw.get('ljPort');
+                ljPort = strip(ljPort,"'");
+                disp(['I think the port is...', num2str(ljPort)]);
+                ljHandle = get_param(parentID,'ljHandle');
+                ljHandle = str2num(ljHandle);
+                disp(['I think the handle is...', num2str(ljHandle)]);
                 set_param(bh,'ljHandle',num2str(ljHandle));
                 mw.set('ljHandle',ljHandle);
-                disp(['Set ljHandle for block to ',num2str(ljHandle)]);
+                ljFreqReadConfigure(ljHandle, ljPort, false, 3);
+
             catch ljConnectErr
                 showErrorMessage(ljConnectErr);
                 disp(ljConnectErr)
                 LabJack.LJM.CloseAll();
             end
+            
         end
 
         % Use the code browser on the left to add the callbacks.
