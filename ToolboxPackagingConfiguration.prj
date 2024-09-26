@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration file="C:\Users\JulianBell\OneDrive - JTEC Energy\Documents\Work Documents\Projects\202311_DryMHControlsDev\slx_LJM\ToolboxPackagingConfiguration.prj" location="C:\Users\JulianBell\OneDrive - JTEC Energy\Documents\Work Documents\Projects\202311_DryMHControlsDev\slx_LJM" name="ToolboxPackagingConfiguration" target="target.toolbox" target-name="Package Toolbox">
+  <configuration file="C:\Users\JulianBell\Documents\MATLAB Local\slx_LJM\ToolboxPackagingConfiguration.prj" location="C:\Users\JulianBell\Documents\MATLAB Local\slx_LJM" name="ToolboxPackagingConfiguration" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>slx_LJM</param.appname>
     <param.authnamewatermark>Julian Leland Bell</param.authnamewatermark>
     <param.email>julian@jtecenergy.com</param.email>
@@ -16,7 +16,7 @@ For more information, please visit:
 - LabJack LJM: https://labjack.com/pages/support?doc=%2Fsoftware-driver%2Finstaller-downloads%2Fljm-software-installers-t4-t7-digit%2F
 - MATLAB for LJM: https://labjack.com/pages/support?doc=%2Fsoftware-driver%2Fexample-codewrappers%2Fmatlab-for-ljm-windows%2F</param.description>
     <param.screenshot>${PROJECT_ROOT}\slx_LJMLogo.png</param.screenshot>
-    <param.version>0.3</param.version>
+    <param.version>0.7</param.version>
     <param.output>${PROJECT_ROOT}\slx_LJM.mltbx</param.output>
     <param.products.name />
     <param.products.id />
@@ -57,7 +57,6 @@ AnalogOutputs/unittest
 AnalogOutputs/unittest/derived
 common/doc
 common/script
-integrationTestSystemController.slxc
 lj_Heartbeat/library/library_lj_Heartbeat.slx
 publish
 publish.prj
@@ -70,7 +69,9 @@ publish/extra/ljT7.png
 publish/extra/slx_eReadName.m
 publish/extra/slx_eWriteName.m
 publish/library
+publish/library/library_lj_FrequencyRead.slx
 publish/library/library_lj_Heartbeat.slx
+publish/library/library_lj_PWM.slx
 publish/library/slblocks.m
 publish/library/slx_LJM.slx
 publish/mex
@@ -85,6 +86,8 @@ slprj/_jitprj/s08I5Zf3NoIjdU64lFq6asD.l
 slprj/_jitprj/s08I5Zf3NoIjdU64lFq6asD.mat
 slprj/_jitprj/s2LKw5lBFCylCjfK9hfqsIB.l
 slprj/_jitprj/s2LKw5lBFCylCjfK9hfqsIB.mat
+slprj/_jitprj/seiAkMo3v1PmTkwWZKWVCQF.l
+slprj/_jitprj/seiAkMo3v1PmTkwWZKWVCQF.mat
 slprj/_jitprj/sgzEzJyt2knLgMWVDkUKaME.l
 slprj/_jitprj/sgzEzJyt2knLgMWVDkUKaME.mat
 slprj/_jitprj/sHBh8kX8r5eEq7jCUIuccDF.l
@@ -108,6 +111,8 @@ slprj/_sfprj/EMLReport/s08I5Zf3NoIjdU64lFq6asD
 slprj/_sfprj/EMLReport/s08I5Zf3NoIjdU64lFq6asD.mat
 slprj/_sfprj/EMLReport/s2LKw5lBFCylCjfK9hfqsIB
 slprj/_sfprj/EMLReport/s2LKw5lBFCylCjfK9hfqsIB.mat
+slprj/_sfprj/EMLReport/seiAkMo3v1PmTkwWZKWVCQF
+slprj/_sfprj/EMLReport/seiAkMo3v1PmTkwWZKWVCQF.mat
 slprj/_sfprj/EMLReport/sgzEzJyt2knLgMWVDkUKaME
 slprj/_sfprj/EMLReport/sgzEzJyt2knLgMWVDkUKaME.mat
 slprj/_sfprj/EMLReport/sHBh8kX8r5eEq7jCUIuccDF
@@ -140,6 +145,7 @@ slprj/_sfprj/precompile/autoInferAccessInfo.mat
 slprj/_sfprj/precompile/fHtVzNBcoIEY3IyJc38CoG.mat
 slprj/_sfprj/precompile/hYqFTWlxk1b1nGmsBWyiSF.mat
 slprj/_sfprj/precompile/lRBXuAVuJZC6xP2tu5ZjPH.mat
+slprj/_sfprj/precompile/MfFElJv4aQFfv5xG1XxtzD.mat
 slprj/_sfprj/precompile/MYZ5tnRoT5HpMVOewFYtFB.mat
 slprj/_sfprj/precompile/nOzrt5Jz4soRe2vD6xqqiB.mat
 slprj/_sfprj/precompile/O5ylmBelfbFxk5sN22iqhD.mat
@@ -152,6 +158,7 @@ slprj/_sfprj/precompile/UVnDSL9d7VPTNwMZ4WpamD.mat
 slprj/_sfprj/precompile/Wrqz1NVBxSa8Gz2YFUTeMG.mat
 slprj/_sfprj/precompile/XBzbQhTiHy28E6ttkQOlLF.mat
 slprj/_sfprj/precompile/xSjQpGyOo2XbyJh7JGyNiF.mat
+slprj/_sfprj/precompile/yBiBT5fdtsN3dQgJWybR7C.mat
 slprj/_sfprj/untitled
 slprj/_sfprj/untitled/_self
 slprj/_sfprj/untitled/_self/sfun
@@ -168,8 +175,7 @@ slprj/sim/varcache/integrationTestSystemController
 slprj/sim/varcache/integrationTestSystemController/checksumOfCache.mat
 slprj/sim/varcache/integrationTestSystemController/tmwinternal
 slprj/sim/varcache/integrationTestSystemController/tmwinternal/simulink_cache.xml
-slprj/sim/varcache/integrationTestSystemController/varInfo.mat
-slx_LJMv0p3.mltbx</param.exclude.filters>
+slprj/sim/varcache/integrationTestSystemController/varInfo.mat</param.exclude.filters>
     <param.exclude.pcodedmfiles>true</param.exclude.pcodedmfiles>
     <param.examples />
     <param.demosxml />
@@ -228,6 +234,7 @@ slx_LJMv0p3.mltbx</param.exclude.filters>
     </fileset.rootdir>
     <fileset.rootfiles>
       <file>${PROJECT_ROOT}\common</file>
+      <file>${PROJECT_ROOT}\LabJackLJM_BasicTemplate.sltx</file>
       <file>${PROJECT_ROOT}\LabJackT7</file>
       <file>${PROJECT_ROOT}\LabJackT_Series</file>
       <file>${PROJECT_ROOT}\lj_AINRead</file>
@@ -238,6 +245,7 @@ slx_LJMv0p3.mltbx</param.exclude.filters>
       <file>${PROJECT_ROOT}\lj_DIOWrite</file>
       <file>${PROJECT_ROOT}\lj_FrequencyRead</file>
       <file>${PROJECT_ROOT}\lj_Heartbeat</file>
+      <file>${PROJECT_ROOT}\lj_PWM</file>
       <file>${PROJECT_ROOT}\lj_RTDRead</file>
       <file>${PROJECT_ROOT}\lj_ThermistorRead</file>
       <file>${PROJECT_ROOT}\lj_ThermocoupleRead</file>
@@ -251,12 +259,15 @@ slx_LJMv0p3.mltbx</param.exclude.filters>
       <file>${PROJECT_ROOT}\maprange.m</file>
       <file>${PROJECT_ROOT}\README.md</file>
       <file>${PROJECT_ROOT}\resources</file>
+      <file>${PROJECT_ROOT}\saveTestResults.m</file>
+      <file>${PROJECT_ROOT}\simout_2_csv_recurs.m</file>
       <file>${PROJECT_ROOT}\slblocks.m</file>
       <file>${PROJECT_ROOT}\slx_DIORead.m</file>
       <file>${PROJECT_ROOT}\slx_DIOWrite.m</file>
       <file>${PROJECT_ROOT}\slx_eReadName.m</file>
       <file>${PROJECT_ROOT}\slx_eWriteName.m</file>
-      <file>${PROJECT_ROOT}\slx_LabJackT7.m</file>
+      <file>${PROJECT_ROOT}\slx_FrequencyRead.m</file>
+      <file>${PROJECT_ROOT}\slx_LabJackTSeries.m</file>
       <file>${PROJECT_ROOT}\slx_ljAINRead.m</file>
       <file>${PROJECT_ROOT}\slx_ljCurrent.m</file>
       <file>${PROJECT_ROOT}\slx_ljDACTick.m</file>
@@ -265,21 +276,21 @@ slx_LJMv0p3.mltbx</param.exclude.filters>
       <file>${PROJECT_ROOT}\slx_LJM.slx</file>
       <file>${PROJECT_ROOT}\slx_LJMLogo.png</file>
       <file>${PROJECT_ROOT}\slx_LJMLogo.xcf</file>
-      <file>${PROJECT_ROOT}\slx_ljPWMOut.m</file>
       <file>${PROJECT_ROOT}\slx_ljRTD.m</file>
       <file>${PROJECT_ROOT}\slx_ljThermistor.m</file>
       <file>${PROJECT_ROOT}\slx_ljThermistor_Multiple.m</file>
       <file>${PROJECT_ROOT}\slx_ljThermocouple.m</file>
+      <file>${PROJECT_ROOT}\slx_PWM.m</file>
     </fileset.rootfiles>
     <fileset.depfun.included />
     <fileset.depfun.excluded />
     <fileset.package />
     <build-deliverables>
-      <file location="${PROJECT_ROOT}" name="slx_LJM.mltbx" optional="false">C:\Users\JulianBell\OneDrive - JTEC Energy\Documents\Work Documents\Projects\202311_DryMHControlsDev\slx_LJM\slx_LJM.mltbx</file>
+      <file location="${PROJECT_ROOT}" name="slx_LJM.mltbx" optional="false">C:\Users\JulianBell\Documents\MATLAB Local\slx_LJM\slx_LJM.mltbx</file>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\Program Files\MATLAB\R2023b</root>
+      <root>C:\Program Files\MATLAB\R2024b</root>
       <toolboxes>
         <toolbox name="matlabcoder" />
         <toolbox name="embeddedcoder" />

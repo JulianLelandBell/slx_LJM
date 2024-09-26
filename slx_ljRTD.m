@@ -44,58 +44,63 @@ classdef slx_ljRTD
                 disp(['I think the port is...', num2str(ljPort)]);
 
                 % Get temp unit, RTD type, and reference resistance
-                tempUnit = mw.get('tempUnit'); % For reasons I don't understand, this is formatted as {'C'}?
-                tempUnit = strip(tempUnit,"{");
-                tempUnit = strip(tempUnit,"}");
-                tempUnit = strip(tempUnit,"'");
-                switch tempUnit
-                    case 'K'
-                        tempUnitIdx = 0;
-                    case 'C'
-                        tempUnitIdx = 1;
-                    case 'F'
-                        tempUnitIdx = 2;
+                tempUnitIdx = mw.get('tempUnit');
+                switch tempUnitIdx
+                    case 0
+                        tempUnit = 'K';
+                    case 1
+                        tempUnit = 'C';
+                    case 2
+                        tempUnit = 'F';
                     otherwise
                         disp('Invalid temperature type - defaulting to C')
+                        tempUnit = 'C';
                         tempUnitIdx = 1;
                 end
-                disp(['The desired temperature output unit is ', num2str(tempUnit),' and the index is ', num2str(tempUnitIdx)]);
+                %}
+                disp(['The desired temperature output unit is ', tempUnit,' and the index is ', num2str(tempUnitIdx)]);
 
-                rtdType = mw.get('rtdType');
-                rtdType = strip(rtdType,"'");
-                switch rtdType
-                    case 'PT100'
-                        rtdTypeIdx = 40;
-                    case 'PT500'
-                        rtdTypeIdx = 41;
-                    case 'PT1000'
-                        rtdTypeIdx = 42;
+                rtdTypeIdx = mw.get('rtdType');
+                switch rtdTypeIdx
+                    case 40
+                        rtdType = 'PT100';
+                    case 41'
+                        rtdType = 'PT500';
+                    case 42
+                        rtdType = 'PT1000';
                     otherwise
-                        disp('Invalid RTD type - defaulting to PT100')
+                        disp('Invalid RTD type - defaulting to PT100');
+                        rtdType = 'PT100';
                         rtdTypeIdx = 40;
                 end
-                disp(['The RTD type is ', num2str(rtdType),' and the index is ', num2str(rtdTypeIdx)]);
+                disp(['The RTD type is ', rtdType,' and the index is ', num2str(rtdTypeIdx)]);
                 
 
-                refResistance = mw.get('refResistance');
-                refResistance = strip(refResistance,"'");
-                switch refResistance
-                    case '1K'
-                        refResistanceVal = 1000;
-                    case '10K'
-                        refResistanceVal = 10000;
-                    case '100K'
-                        refResistanceVal = 100000;
-                    case '1M'
-                        refResistanceVal = 1000000;
+                refResistanceVal = mw.get('refResistance');
+                switch refResistanceVal
+                    case 1000
+                        refResistance = '1K';
+                    case 10000
+                        refResistance = '10K';
+                    case 100000
+                        refResistance = '100K';
+                    case 1000000
+                        refResistance = '1M';
                     otherwise
                         disp('Invalid reference resistance - defaulting to 1K')
+                        refResistance = '1K';
                         refResistanceVal = 1000;
                 end
                 disp(['The reference resistance type is ', num2str(refResistance),' and the value is ', num2str(refResistanceVal)]);
                 
                 % Get handles
-                ljHandle = get_param(parentID,'ljHandle');
+                try
+                    ljHandle = get_param(parentID,'ljHandle');
+                catch ME
+                    ljHandle = '-1';
+                    disp('Could not get handle - setting dummy handle!');
+                    disp(ME)
+                end
                 ljHandle = str2num(ljHandle);
                 disp(['I think the handle is...', num2str(ljHandle)]);
                 set_param(bh,'ljHandle',num2str(ljHandle));
@@ -108,7 +113,7 @@ classdef slx_ljRTD
             catch ljConnectErr
                 showErrorMessage(ljConnectErr);
                 disp(ljConnectErr)
-                LabJack.LJM.CloseAll();
+                %LabJack.LJM.CloseAll();
                 
             end
         end

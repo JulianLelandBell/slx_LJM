@@ -39,15 +39,43 @@ classdef slx_ljThermistor
 
            try
                 disp('Trying to configure thermistor input')
+
+                % Get port & handle
                 ljPort = mw.get('ljPort');
                 ljPort = strip(ljPort,"'");
                 disp(['I think the port is...', num2str(ljPort)]);
+
+                % Get temp unit, thermistor resistance, and reference
+                % resistance
+                tempUnit = mw.get('tempUnit'); % For reasons I don't understand, this is formatted as {'C'}?
+                switch tempUnit
+                    case 3
+                        tempUnitIdx = 0;
+                    case 1
+                        tempUnitIdx = 1;
+                    case 2
+                        tempUnitIdx = 2;
+                    otherwise
+                        disp('Invalid temperature type - defaulting to C')
+                        tempUnitIdx = 1;
+                end
+                disp(['The desired temperature output unit is ', num2str(tempUnit),' and the index is ', num2str(tempUnitIdx)]);
+
+                thermResVal= mw.get('thermRes');
+                disp(['The thermistor resistance value is ', num2str(thermResVal)]);
+                
+                refResistanceVal = mw.get('refResistance');
+                disp(['The reference resistance value is ', num2str(refResistanceVal)]);
+
+                % Get handles
                 ljHandle = get_param(parentID,'ljHandle');
                 ljHandle = str2num(ljHandle);
                 disp(['I think the handle is...', num2str(ljHandle)]);
                 set_param(bh,'ljHandle',num2str(ljHandle));
                 mw.set('ljHandle',ljHandle);
-                ljThermistorConfigure(ljHandle,ljPort,false,50,1,4,0,2.5,10000,1,1.032e-3,2.387e-4,0,1.580e-7);
+
+                % Run thermistor configuration script
+                ljThermistorConfigure(ljHandle,ljPort,false,50,tempUnitIdx,4,0,2.5,refResistanceVal,thermResVal,1.032e-3,2.387e-4,0,1.580e-7);
             catch ljConnectErr
                 showErrorMessage(ljConnectErr);
                 disp(ljConnectErr)
