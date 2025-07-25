@@ -66,4 +66,4 @@ As of July 2025, there is no plan to add additional features to slx_LJM - it doe
 
 Please cite this codebase if you find it useful!   [![DOI](https://zenodo.org/badge/727206724.svg)](https://zenodo.org/doi/10.5281/zenodo.10256471)
 
-If you find this codebase REALLY useful, you can [buy Julian](https://www.paypal.com/paypalme/julianlelandbell) or [buy Gavin]() a coffee!
+If you find this codebase REALLY useful, you can [buy Julian](https://www.paypal.com/paypalme/julianlelandbell) or [buy Gavin](https://paypal.me/GavinWilliamson255) a coffee!
