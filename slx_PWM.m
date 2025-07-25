@@ -1,17 +1,11 @@
 %SLX_PWM Mask initialization for lj_PWM block
 %   
 % slx_PWM.m
-% Julian Bell, JTEC Energy
-% 2024-04-27
+% Julian Bell & Gavin Williamson, JTEC Energy
+% 2025-04-16
 % 
 % This class definition configures & initializes the mask for the
 % lj_PWM block in slx_LJM
-% 
-% Relevant references:
-% - XXX
-%
-% TODO:
-% - XXX
 
 classdef slx_PWM
 
@@ -47,15 +41,27 @@ classdef slx_PWM
                 set_param(bh,'ljHandle',num2str(ljHandle));
                 mw.set('ljHandle',ljHandle);
                 defaultState = mw.get('defaultState');
-                LabJack.LJM.eWriteName(ljHandle,ljPort,defaultState);
+                ljClock = mw.get("ljClock");
             catch ljConnectErr
                 showErrorMessage(ljConnectErr);
                 disp(ljConnectErr)
-                %LabJack.LJM.CloseAll();
+                LabJack.LJM.CloseAll();
             end
         end
 
         % Use the code browser on the left to add the callbacks.
 
+
+        function pwm_data(callbackContext)
+          web("https://support.labjack.com/docs/13-2-2-pwm-out-t-series-datasheet")  
+        end
+
+        function pwm_config(callbackContext)
+           web("https://support.labjack.com/docs/configuring-a-pwm-output") 
+        end
+
+        function clock_web(callbackContext)
+            web("https://support.labjack.com/docs/13-2-1-ef-clock-source-t-series-datasheet")
+        end
     end
 end

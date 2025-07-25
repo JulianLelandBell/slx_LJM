@@ -1,17 +1,11 @@
 %SLX_LJTHERMOCOUPLE Mask initialization for lj_ThermocoupleRead block
 %   
 % slx_ljThermocouple.m
-% Julian Bell, JTEC Energy
-% 2023-12-06
+% Julian Bell & Gavin Williamson, JTEC Energy
+% 2025-04-16
 % 
 % This class definition configures & initializes the mask for the
 % lj_Thermocouple block in slx_LJM
-% 
-% Relevant references:
-% - XXX
-%
-% TODO:
-% - Verify that valid input port is used (must be positive AIN)
 
 
 classdef slx_ljThermocouple
@@ -44,7 +38,6 @@ classdef slx_ljThermocouple
                 ljPortNum = str2num(extractBetween(ljPort,strlength(ljPort),strlength(ljPort)))
                 ljPort = strip(ljPort,"'");
                 disp(['I think the port is...', num2str(ljPort)]);
-                ljNegPortNum = ljPortNum + 1
 
                 % Get temp unit and thermocouple type
                 tempUnit = mw.get('tempUnit');
@@ -97,16 +90,68 @@ classdef slx_ljThermocouple
                 mw.set('ljHandle',ljHandle);
                 disp('Set handles!')
 
+                %Configure AIN port
+                if getDeviceType(ljHandle) == int32(7) %T7 Configuration
+                    numFrames=4;
+                    aNames = NET.createArray('System.String', numFrames);
+                    aNames(1) = [char(ljPort),'_NEGATIVE_CH'];
+                    aNames(2) = [char(ljPort),'_RANGE'];
+                    aNames(3) = [char(ljPort),'_RESOLUTION_INDEX'];
+                    aNames(4) = [char(ljPort),'_SETTLING_US'];
+                    aValues = NET.createArray('System.Double',numFrames);
+                    if mw.get('Diff_Rd_SW')==1
+                        diff_ch = char(mw.get('Diff_Rd'));
+                        diff_ch = strip(diff_ch,"'");
+                        aValues(1) = str2double(diff_ch(4:end));
+                    else
+                        aValues(1) = 199;
+                    end
+                    aValues(2) = .01;
+                    aValues(3) = 0;
+                    aValues(4) = 0;
+                end
+                LabJack.LJM.eWriteNames(ljHandle,numFrames,aNames,aValues,0);
+
                 % Configure thermocouple
+                if mw.get('Diff_Rd_SW')==1
+                    diff_ch = char(mw.get('Diff_Rd'));
+                    diff_ch = strip(diff_ch,"'");
+                    ljNegPortNum = str2double(diff_ch(4:end));
+                else
+                    ljNegPortNum = 199;
+                end
                 ljThermocoupleConfigure(ljHandle,ljPort,true,tcTypeIdx,ljNegPortNum,tempUnitIdx);
+
             catch ljConnectErr
                 showErrorMessage(ljConnectErr);
                 disp(ljConnectErr)
                 LabJack.LJM.CloseAll();
-            end 
+           end 
+
+           %diable differential channel input if differential reading is
+           %disabled
+           if mw.get('Diff_Rd_SW')==0
+               diff_rd = Simulink.Mask.get(gcb);
+               param_diff_rd = diff_rd.getParameter('Diff_Rd');
+               param_diff_rd.Enabled ='off';
+           else
+               diff_rd = Simulink.Mask.get(gcb);
+               param_diff_rd = diff_rd.getParameter('Diff_Rd');
+               param_diff_rd.Enabled ='on';
+           end
+
+
         end
 
         % Use the code browser on the left to add the callbacks.
 
+
+        function thermocouple_doc(callbackContext)
+            web('https://support.labjack.com/docs/14-1-1-thermocouple-t7-t8-t-series-datasheet');
+        end
+
+        function thermocouple_wir(callbackContext)
+            web('https://support.labjack.com/docs/thermocouples-app-note')
+        end
     end
 end

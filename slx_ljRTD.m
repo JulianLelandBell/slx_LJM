@@ -1,17 +1,11 @@
 %SLX_LJRTD Mask initialization for lj_RTDRead block
 %   
 % slx_ljRTD.m
-% Julian Bell, JTEC Energy
-% 2023-12-06
+% Julian Bell & Gavin Williamson, JTEC Energy
+% 2025-04-16
 % 
 % This class definition configures & initializes the mask for the
 % lj_RTDRead block in slx_LJM
-% 
-% Relevant references:
-% - XXX
-%
-% TODO:
-% - XXX
 
 classdef slx_ljRTD
 
@@ -106,6 +100,32 @@ classdef slx_ljRTD
                 set_param(bh,'ljHandle',num2str(ljHandle));
                 mw.set('ljHandle',ljHandle);
                 disp('Set handles!')
+
+                %Configure AIN port
+                if getDeviceType(ljHandle) == int32(4) %T4 Configuration
+                    numFrames=3;
+                    aNames = NET.createArray('System.String', numFrames);
+                    aNames(1) = [char(ljPort),'_RANGE'];
+                    aNames(2) = [char(ljPort),'_RESOLUTION_INDEX'];
+                    aNames(3) = [char(ljPort),'_SETTLING_US'];
+                    aValues = NET.createArray('System.Double',numFrames);
+                    aValues(1) = 0;
+                    aValues(2) = 0;
+                    aValues(3) = 0;
+                elseif getDeviceType(ljHandle) == int32(7) %T7 Configuration
+                    numFrames=4;
+                    aNames = NET.createArray('System.String', numFrames);
+                    aNames(1) = [char(ljPort),'_NEGATIVE_CH'];
+                    aNames(2) = [char(ljPort),'_RANGE'];
+                    aNames(3) = [char(ljPort),'_RESOLUTION_INDEX'];
+                    aNames(4) = [char(ljPort),'_SETTLING_US'];
+                    aValues = NET.createArray('System.Double',numFrames);
+                    aValues(1) = 199;
+                    aValues(2) = 10;
+                    aValues(3) = 0;
+                    aValues(4) = 0;
+                end
+                LabJack.LJM.eWriteNames(ljHandle,numFrames,aNames,aValues,0);
                 
                 % Run RTD configuration script
                 ljRTDConfigure(ljHandle,ljPort,false,rtdTypeIdx,tempUnitIdx,4,0,2.5,refResistanceVal);
@@ -118,5 +138,17 @@ classdef slx_ljRTD
             end
         end
 
+
+        function RTD_doc(callbackContext)
+            web ('https://support.labjack.com/docs/14-1-3-rtd-t-series-datasheet')
+        end
+
+        function Ex_circ_4(callbackContext)
+            web('https://support.labjack.com/docs/14-1-0-1-excitation-circuits-t-series-datasheet')
+        end
+
+        function res_tick(callbackContext)
+            web('https://support.labjack.com/docs/ljtick-resistance-datasheet')            
+        end
     end
 end

@@ -29,8 +29,7 @@ lt = false;
 %% Create timeseries for experiment
 % Create datetime vector
 dt = simout.tout(2)-simout.tout(1);
-t_vect = (simout.expStartTime:seconds(dt):simout.expEndTime)';
-t_vect = t_vect(1:numel(simout.tout)); % t_vect has an extra element - not sure why
+t_vect = (simout.expStartTime:seconds(dt):(seconds(dt)*(numel(simout.tout)-1))+simout.expStartTime)';
 t_range = timerange(simout.curExpStartTime,simout.expEndTime);
 
 % Add elapsed time vector to maps

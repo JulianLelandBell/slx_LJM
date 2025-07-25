@@ -1,20 +1,11 @@
 %SLX_LJHEARTBEAT Mask initialization for lj_Heartbeat block
 %   
 % slx_ljHeartbeat.m
-% Julian Bell, JTEC Energy
-% 2023-12-06
+% Julian Bell & Gavin Williamson, JTEC Energy
+% 2025-04-16
 % 
 % This class definition configures & initializes the mask for the
 % lj_Heartbeat block in slx_LJM
-% 
-% Relevant references:
-% - XXX
-%
-% TODO:
-% - Figure out inconsistency in timing bug. When running at a period
-% similar to the model sample period, this block produces a duty cycle that
-% isn't 50%. This is almost certainly a discretization issue - but still
-% need to figure it out...
 
 classdef slx_ljHeartbeat
 
@@ -49,6 +40,7 @@ classdef slx_ljHeartbeat
                 disp(['I think the handle is...', num2str(ljHandle)]);
                 set_param(bh,'ljHandle',num2str(ljHandle));
                 mw.set('ljHandle',ljHandle);
+                Simulink_step = mw.get('Simulink_step')
                 LabJack.LJM.eWriteName(ljHandle,ljPort,0); % Initially start output low
             catch ljConnectErr
                 showErrorMessage(ljConnectErr);

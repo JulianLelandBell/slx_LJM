@@ -2,17 +2,10 @@
 %   
 % slx_LabJackTSeries.m
 % Julian Bell, JTEC Energy
-% 2024-01-04 (actually earlier, but this is when I'm adding these notes
+% 2025-04-16
 % 
 % This class definition configures & initializes the mask for the
 % LabJack T-Series block in slx_LJM
-% 
-% Relevant references:
-% - XXX
-%
-% TODO:
-% - XXX
-
 classdef slx_LabJackTSeries
 
     properties
@@ -44,7 +37,15 @@ classdef slx_LabJackTSeries
 
             % Connect to devices & configure inputs
             try
-                [ljmError, ljHandle] = LabJack.LJM.OpenS('ANY', 'USB', ljID, ljHandle); % Example - need to change this to T4 for different device
+                switch mw.get('cnx_mth')
+                    case 1
+                        [ljmError, ljHandle] = LabJack.LJM.OpenS('ANY', 'USB', ljID, ljHandle);
+                    case 2
+                        [ljmError, ljHandle] = LabJack.LJM.OpenS('ANY', 'Ethernet', ljID, ljHandle);
+                    otherwise
+                        disp('Invalid connection method. Default set to USB')
+                        [ljmError, ljHandle] = LabJack.LJM.OpenS('ANY', 'USB', ljID, ljHandle);
+                end
                 showDeviceInfo(ljHandle); 
                 disp(['Handle = ',num2str(ljHandle)]);
                 set_param(bh,'ljHandle',num2str(ljHandle));
@@ -59,5 +60,9 @@ classdef slx_LabJackTSeries
 
         % Use the code browser on the left to add the callbacks.
 
+
+        function Control3(callbackContext)
+            web("https://support.labjack.com/docs/opens-ljm-user-s-guide")
+        end
     end
 end

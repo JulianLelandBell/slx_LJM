@@ -1,18 +1,12 @@
 %SLX_LJDACTICK Mask initialization for lj_DACTickWrite block
 %   
 % slx_ljDACTick.m
-% Julian Bell, JTEC Energy
-% 2024-01-03
+% Julian Bell & Gavin Williamson, JTEC Energy
+% 2025-04-16
 % 
 % This class definition configures & initializes the mask for the
 % lj_DACTick block in slx_LJM. This block is intended for use with the
 % LabJack LJTick-DAC external device.
-% 
-% Relevant references:
-% - XXX
-%
-% TODO:
-% - XXX
 
 classdef slx_ljDACTick
     properties
@@ -46,7 +40,6 @@ classdef slx_ljDACTick
                 disp(['I think the handle is...', num2str(ljHandle)]);
                 set_param(bh,'ljHandle',num2str(ljHandle));
                 mw.set('ljHandle',ljHandle);
-                LabJack.LJM.eWriteName(ljHandle,ljPort,0); % Initially start output low
             catch ljConnectErr
                 showErrorMessage(ljConnectErr);
                 disp(ljConnectErr)
@@ -56,5 +49,9 @@ classdef slx_ljDACTick
 
         % Use the code browser on the left to add the callbacks.
 
+
+        function Control2(callbackContext)
+            web("https://support.labjack.com/docs/ljtick-dac-datasheet");
+        end
     end
 end

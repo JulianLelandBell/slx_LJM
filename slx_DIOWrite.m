@@ -1,17 +1,11 @@
 %SLX_DIOWRITE Mask initialization for lj_DIOWrite block
 %   
 % slx_DIOWrite.m
-% Julian Bell, JTEC Energy
-% 2024-01-04
+% Julian Bell & Gavin Williamson, JTEC Energy
+% 2025-04-16
 % 
 % This class definition configures & initializes the mask for the
 % lj_DIOWrite block in slx_LJM
-% 
-% Relevant references:
-% - XXX
-%
-% TODO:
-% - XXX
 
 classdef slx_DIOWrite
 
@@ -57,5 +51,9 @@ classdef slx_DIOWrite
 
         % Use the code browser on the left to add the callbacks.
 
+
+        function Control2(callbackContext)
+            web('https://support.labjack.com/docs/13-0-digital-i-o-t-series-datasheet')
+        end
     end
 end

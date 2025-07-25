@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration file="C:\Users\JulianBell\Documents\MATLAB Local\slx_LJM\ToolboxPackagingConfiguration.prj" location="C:\Users\JulianBell\Documents\MATLAB Local\slx_LJM" name="ToolboxPackagingConfiguration" target="target.toolbox" target-name="Package Toolbox">
+  <configuration build-checksum="1736070706" file="C:\Users\GavinWilliamson\MATLAB\Projects\slx_LJM\ToolboxPackagingConfiguration.prj" location="C:\Users\GavinWilliamson\MATLAB\Projects\slx_LJM" name="ToolboxPackagingConfiguration" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>slx_LJM</param.appname>
     <param.authnamewatermark>Julian Leland Bell</param.authnamewatermark>
     <param.email>julian@jtecenergy.com</param.email>
@@ -16,7 +16,7 @@ For more information, please visit:
 - LabJack LJM: https://labjack.com/pages/support?doc=%2Fsoftware-driver%2Finstaller-downloads%2Fljm-software-installers-t4-t7-digit%2F
 - MATLAB for LJM: https://labjack.com/pages/support?doc=%2Fsoftware-driver%2Fexample-codewrappers%2Fmatlab-for-ljm-windows%2F</param.description>
     <param.screenshot>${PROJECT_ROOT}\slx_LJMLogo.png</param.screenshot>
-    <param.version>0.7</param.version>
+    <param.version>1.0</param.version>
     <param.output>${PROJECT_ROOT}\slx_LJM.mltbx</param.output>
     <param.products.name />
     <param.products.id />
@@ -175,13 +175,31 @@ slprj/sim/varcache/integrationTestSystemController
 slprj/sim/varcache/integrationTestSystemController/checksumOfCache.mat
 slprj/sim/varcache/integrationTestSystemController/tmwinternal
 slprj/sim/varcache/integrationTestSystemController/tmwinternal/simulink_cache.xml
-slprj/sim/varcache/integrationTestSystemController/varInfo.mat</param.exclude.filters>
+slprj/sim/varcache/integrationTestSystemController/varInfo.mat
+common
+LabJackT7
+lj_AINRead
+lj_CurrentRead
+lj_DACTickWrite
+lj_DIORead
+lj_DIOWrite
+LabJackT_Series
+lj_DACWrite
+lj_FrequencyRead
+lj_Heartbeat
+lj_PWM
+lj_RTDRead
+lj_ThermistorRead
+lj_ThermocoupleRead
+resources
+.gitattributes
+.gitignore</param.exclude.filters>
     <param.exclude.pcodedmfiles>true</param.exclude.pcodedmfiles>
     <param.examples />
     <param.demosxml />
     <param.apps />
     <param.registered.apps />
-    <param.docs>${PROJECT_ROOT}\publish\doc\info.xml</param.docs>
+    <param.docs>${PROJECT_ROOT}\info.xml</param.docs>
     <param.getting.started.guide />
     <param.matlabpath.excludes />
     <param.javaclasspath.excludes />
@@ -203,6 +221,7 @@ slprj/sim/varcache/integrationTestSystemController/varInfo.mat</param.exclude.fi
     <param.additional.sw.mac.url />
     <param.additional.sw.linux.url />
     <unset>
+      <param.version />
       <param.output />
       <param.products.name />
       <param.products.id />
@@ -233,24 +252,13 @@ slprj/sim/varcache/integrationTestSystemController/varInfo.mat</param.exclude.fi
       <file>${PROJECT_ROOT}</file>
     </fileset.rootdir>
     <fileset.rootfiles>
-      <file>${PROJECT_ROOT}\common</file>
+      <file>${PROJECT_ROOT}\close_lbj.m</file>
+      <file>${PROJECT_ROOT}\help_slx_ljm.html</file>
+      <file>${PROJECT_ROOT}\help_slx_ljm.mlx</file>
+      <file>${PROJECT_ROOT}\helptoc.xml</file>
+      <file>${PROJECT_ROOT}\info.xml</file>
       <file>${PROJECT_ROOT}\LabJackLJM_BasicTemplate.sltx</file>
-      <file>${PROJECT_ROOT}\LabJackT7</file>
-      <file>${PROJECT_ROOT}\LabJackT_Series</file>
-      <file>${PROJECT_ROOT}\lj_AINRead</file>
-      <file>${PROJECT_ROOT}\lj_CurrentRead</file>
-      <file>${PROJECT_ROOT}\lj_DACTickWrite</file>
-      <file>${PROJECT_ROOT}\lj_DACWrite</file>
-      <file>${PROJECT_ROOT}\lj_DIORead</file>
-      <file>${PROJECT_ROOT}\lj_DIOWrite</file>
-      <file>${PROJECT_ROOT}\lj_FrequencyRead</file>
-      <file>${PROJECT_ROOT}\lj_Heartbeat</file>
-      <file>${PROJECT_ROOT}\lj_PWM</file>
-      <file>${PROJECT_ROOT}\lj_RTDRead</file>
-      <file>${PROJECT_ROOT}\lj_ThermistorRead</file>
-      <file>${PROJECT_ROOT}\lj_ThermocoupleRead</file>
       <file>${PROJECT_ROOT}\ljFreqReadConfigure.m</file>
-      <file>${PROJECT_ROOT}\ljPWMConfigure.m</file>
       <file>${PROJECT_ROOT}\ljRTDConfigure.m</file>
       <file>${PROJECT_ROOT}\ljT7.png</file>
       <file>${PROJECT_ROOT}\ljT7.xcf</file>
@@ -258,7 +266,6 @@ slprj/sim/varcache/integrationTestSystemController/varInfo.mat</param.exclude.fi
       <file>${PROJECT_ROOT}\ljThermocoupleConfigure.m</file>
       <file>${PROJECT_ROOT}\maprange.m</file>
       <file>${PROJECT_ROOT}\README.md</file>
-      <file>${PROJECT_ROOT}\resources</file>
       <file>${PROJECT_ROOT}\saveTestResults.m</file>
       <file>${PROJECT_ROOT}\simout_2_csv_recurs.m</file>
       <file>${PROJECT_ROOT}\slblocks.m</file>
@@ -274,11 +281,11 @@ slprj/sim/varcache/integrationTestSystemController/varInfo.mat</param.exclude.fi
       <file>${PROJECT_ROOT}\slx_ljDACWrite.m</file>
       <file>${PROJECT_ROOT}\slx_ljHeartbeat.m</file>
       <file>${PROJECT_ROOT}\slx_LJM.slx</file>
+      <file>${PROJECT_ROOT}\slx_LJM.slx.r2023b</file>
       <file>${PROJECT_ROOT}\slx_LJMLogo.png</file>
       <file>${PROJECT_ROOT}\slx_LJMLogo.xcf</file>
       <file>${PROJECT_ROOT}\slx_ljRTD.m</file>
       <file>${PROJECT_ROOT}\slx_ljThermistor.m</file>
-      <file>${PROJECT_ROOT}\slx_ljThermistor_Multiple.m</file>
       <file>${PROJECT_ROOT}\slx_ljThermocouple.m</file>
       <file>${PROJECT_ROOT}\slx_PWM.m</file>
     </fileset.rootfiles>
@@ -286,7 +293,7 @@ slprj/sim/varcache/integrationTestSystemController/varInfo.mat</param.exclude.fi
     <fileset.depfun.excluded />
     <fileset.package />
     <build-deliverables>
-      <file location="${PROJECT_ROOT}" name="slx_LJM.mltbx" optional="false">C:\Users\JulianBell\Documents\MATLAB Local\slx_LJM\slx_LJM.mltbx</file>
+      <file location="${PROJECT_ROOT}" name="slx_LJM.mltbx" optional="false">C:\Users\GavinWilliamson\MATLAB\Projects\slx_LJM\slx_LJM.mltbx</file>
     </build-deliverables>
     <workflow />
     <matlab>

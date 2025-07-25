@@ -1,18 +1,12 @@
 %SLX_LJDACWRITE Mask initialization for lj_DACWrite block
 %   
 % slx_ljDACWrite.m
-% Julian Bell, JTEC Energy
-% 2024-01-03
+% Julian Bell & Gavin Williamson, JTEC Energy
+% 2025-04-16
 % 
 % This class definition configures & initializes the mask for the
 % lj_DACWrite block in slx_LJM. This block uses the built-in DAC channels
 % on LabJack T-series devices
-% 
-% Relevant references:
-% - XXX
-%
-% TODO:
-% - XXX
 
 classdef slx_ljDACWrite
 
@@ -57,5 +51,9 @@ classdef slx_ljDACWrite
 
         % Use the code browser on the left to add the callbacks.
 
+
+        function Control2(callbackContext)
+           web('https://support.labjack.com/docs/15-0-dac-t-series-datasheet') 
+        end
     end
 end
